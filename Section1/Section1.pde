@@ -59,6 +59,8 @@ for (int i=0;i<values.length;i++){
     //???WRITE THIS METHOD!!!
     for (int i = 0; i < values.length; i++) {
       values[i] += speeds[i];
+      //line is at x,y+100
+      if ((values[i]>=100 || values[i]<=-100)) speeds[i]*=-1;
       //??? keep them values between max/min value
 
       //??? reverse the speeds so they oscillate up/down when they reach max/min
@@ -76,5 +78,5 @@ void setup() {
 void draw() {
   background(255);
   v.display();
- // v.update();
+  v.update();
 }
