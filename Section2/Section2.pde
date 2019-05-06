@@ -1,9 +1,10 @@
-int levels;
+int levels,old;
 color bg,fg;
 
 void setup() {
   size(800, 600);
   levels = 1;
+  old=1;
 }
 
 /*Create Pascal's Gasket (google an image of this)
@@ -15,14 +16,21 @@ void setup() {
   etc.
 */
 void gasket(int levels, float v1x, float v1y, float v2x, float v2y, float v3x, float v3y) {
-    //YOU WRITE THIS METHOD!
+   triangle(v1x,v1y,v2x,v2y,v3x,v3y);
+   if (levels%2==0)  fill(255,0,0);
+    else fill(0,0,0); 
+  if (old!=levels){
+    old=levels;
+   gasket(levels,(v1x+v2x)/2.0,(v1y+v2y)/2.0,
+      (v2x+v3x)/2.0,(v2y+v3y)/2.0,
+      (v1x+v3x)/2.0,(v1y+v3y)/2.0);
 }
-
+}
 void draw() { 
   background(50);  
   
   fill(255);
-  text("Click the mouse to increase levels, press a key to decrease levles",20,20);
+  text("Click the mouse to increase levels, press a key to decrease levels",20,20);
 
   gasket(levels,0, height-10, width, height-10, width/2, 10);
 
