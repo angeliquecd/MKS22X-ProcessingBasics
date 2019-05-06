@@ -46,9 +46,14 @@ class Visualizer {
     //fill(0, 255, 0);
     //rect(x+120, y+50, 60, 50);
     float start =x;
+    int lookingat=0;
 for (int i=0;i<values.length;i++){
-  rect(start,y+100,inc,values[i]);
-  fill(start,y+100,inc,values[i]);
+  rect(start,y+100,inc,values[i]); 
+    lookingat =(i+1)%(values.length);
+   if (values[lookingat]<=50 && values[lookingat]>0) fill(255,247,80);
+   else if (values[lookingat]>50) fill(37,232,91);
+   else if (values[lookingat]<=0 && values[lookingat]>=-50) fill(255,176,80);
+   else if (values[lookingat]<-50) fill(255,0,0);
   start+=inc;
 }
     //Width of the visualizer is 400!
